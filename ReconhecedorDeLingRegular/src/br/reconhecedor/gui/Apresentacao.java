@@ -1,5 +1,6 @@
 package br.reconhecedor.gui;
 
+import br.reconhecedor.vo.Lexico;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -84,6 +85,11 @@ public class Apresentacao extends javax.swing.JFrame {
 
         btn_analisar.setText("Analisar");
         btn_analisar.setPreferredSize(new java.awt.Dimension(260, 30));
+        btn_analisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_analisarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_analisar, java.awt.BorderLayout.LINE_START);
 
         btn_equipe.setText("Equipe");
@@ -117,6 +123,12 @@ public class Apresentacao extends javax.swing.JFrame {
     private void btn_equipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_equipeActionPerformed
         new Equipe().setVisible(true);
     }//GEN-LAST:event_btn_equipeActionPerformed
+
+    private void btn_analisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_analisarActionPerformed
+        // TODO add your handling code here:
+        System.out.println("br.reconhecedor.gui.Apresentacao.btn_analisarActionPerformed()");
+        Lexico.getInstance().reconhecimento(textArea, tabela);
+    }//GEN-LAST:event_btn_analisarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
