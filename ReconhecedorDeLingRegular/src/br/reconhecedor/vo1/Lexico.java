@@ -77,29 +77,24 @@ public class Lexico {
         String aux = "";
 
         for (char c : conteudo.toCharArray()) {
-            if (this.caracteres_especiais.contains(String.valueOf(c))) {//Caracter Especial
-                if (aux.length() > 0) {
-                    palavras.add(linha);
-                    palavras.add(aux);
-                    aux = "";
-                }
-                palavras.add(linha);
-                palavras.add(c);
-            } else if (c == '\n') {//Pula linha
-                if (aux.length() > 0) {
-                    palavras.add(linha);
-                    palavras.add(aux);
-                    aux = "";
-                }
-                linha++;
-            } else if (Character.getType(c) == 15 || Character.getType(c) == 12) {//Tabulacao ou Espaco em branco
-                if (aux.length() > 0) {
-                    palavras.add(linha);
-                    palavras.add(aux);
-                    aux = "";
-                }
-            } else {
+            if(Character.isLetter(c) || Character.isDigit(c)){
                 aux += c;
+            }else{
+                if (aux.length() > 0) {
+                    palavras.add(linha);
+                    palavras.add(aux);
+                    aux = "";
+                }
+                if(this.caracteres_especiais.contains(String.valueOf(c))){
+                    palavras.add(linha);
+                    palavras.add(c);
+                    continue;
+                }
+                
+                if(c == '\n'){
+                    linha++;
+                    continue;
+                }
             }
         }
 
