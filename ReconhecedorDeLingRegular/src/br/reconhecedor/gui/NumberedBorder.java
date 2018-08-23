@@ -82,6 +82,6 @@ class NumberedBorder extends AbstractBorder {
 
 
 /* como usar com um JTextArea:
-JTextArea  = new JTextArea();
+JTextArea txt = new JTextArea();
 txt.setBorder(new NumberedBorder());
 */

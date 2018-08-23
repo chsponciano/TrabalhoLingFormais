@@ -1,6 +1,6 @@
 package br.reconhecedor.gui;
 
-import br.reconhecedor.vo.Lexico;
+import br.reconhecedor.vo1.Lexico;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -126,7 +126,6 @@ public class Apresentacao extends javax.swing.JFrame {
 
     private void btn_analisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_analisarActionPerformed
         // TODO add your handling code here:
-        System.out.println("br.reconhecedor.gui.Apresentacao.btn_analisarActionPerformed()");
         Lexico.getInstance().reconhecimento(textArea, tabela);
     }//GEN-LAST:event_btn_analisarActionPerformed
 
