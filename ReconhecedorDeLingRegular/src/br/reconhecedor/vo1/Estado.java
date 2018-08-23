@@ -20,7 +20,7 @@ public class Estado {
     public static boolean isErro = false;
 
     private Estado() {
-        construiAutomato();
+        construirAutomato();
     }
 
     public static Estado getInstance() {
@@ -50,7 +50,7 @@ public class Estado {
         return (no.isEstadoFinal()) ? "" : this.estadoQErro();
     }
 
-    private void construiAutomato() {
+    private void construirAutomato() {
         //Inicializando estados     Desc   Final  Inicial
         NoEstado q0 = new NoEstado("q0", false, true);
         NoEstado q15 = new NoEstado("q15", true, false);
