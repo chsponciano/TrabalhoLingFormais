@@ -113,13 +113,13 @@ public class Estado {
         this.noEstados.add(q4);
     }
 
-    public String validar_percuso(String palavra) {
+    public String validarPercuso(String palavra) {
         isErro = false;
         NoEstado no = estadoInicial();
-        return no.getDescricao()+ ", " + this.validar_percuso(no, 0, palavra);
+        return no.getDescricao()+ ", " + this.validarPercuso(no, 0, palavra);
     }
 
-    private String validar_percuso(NoEstado no, int posicao, String palavra) {
+    private String validarPercuso(NoEstado no, int posicao, String palavra) {
         if (palavra.length() == posicao) {
             return no.getDescricao() + estadoQFinal(no);
         }
@@ -128,7 +128,7 @@ public class Estado {
 
         if (no != null) {
             posicao++;
-            return no.getDescricao()+ ", " + this.validar_percuso(no, posicao, palavra);
+            return no.getDescricao()+ ", " + this.validarPercuso(no, posicao, palavra);
         }
 
         return this.estadoQErro();

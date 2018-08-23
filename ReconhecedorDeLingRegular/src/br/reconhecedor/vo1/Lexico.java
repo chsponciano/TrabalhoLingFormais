@@ -52,22 +52,22 @@ public class Lexico {
         dtm.setRowCount(0);
         
         while (iterator.hasNext()) {
-            dtm.addRow(valida_palavra(Integer.parseInt(String.valueOf(iterator.next())), String.valueOf(iterator.next())));
+            dtm.addRow(validaPalavra(Integer.parseInt(String.valueOf(iterator.next())), String.valueOf(iterator.next())));
         }
     }
 
-    public Object[] valida_palavra(int linha, String palavra) {
+    public Object[] validaPalavra(int linha, String palavra) {
         if (this.caracteres_especiais.contains(palavra)) {
             return new Object[]{linha, "Simbolo Especial", palavra, "q0, qEspecial"};
         }
         if (this.palavras_reservadas.contains(palavra)) {
-            return new Object[]{linha, "Palavra Reservada", palavra, Estado.getInstance().validar_percuso(palavra)};
+            return new Object[]{linha, "Palavra Reservada", palavra, Estado.getInstance().validarPercuso(palavra)};
         }
         if ((palavra.charAt(0) != 'a') && (palavra.charAt(0) != 'b') && (palavra.charAt(0) != 'c')) {
             return new Object[]{linha, "Erro: simbolo(s) inválido(s)", palavra, "q0, qErro"};
         }
 
-        String reconhecimento = Estado.getInstance().validar_percuso(palavra);
+        String reconhecimento = Estado.getInstance().validarPercuso(palavra);
         return new Object[]{linha, (!Estado.isErro) ? "Palavra válida" : "Erro: palavra inválida", palavra, reconhecimento};
     }
 
