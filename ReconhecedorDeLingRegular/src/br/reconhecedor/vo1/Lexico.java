@@ -77,7 +77,7 @@ public class Lexico {
         String aux = "";
 
         for (char c : conteudo.toCharArray()) {
-            if(Character.isLetter(c) || Character.isDigit(c)){
+            if(Character.isLetterOrDigit(c)){
                 aux += c;
             }else{
                 if (aux.length() > 0) {

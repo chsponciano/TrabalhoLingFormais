@@ -47,7 +47,7 @@ public class Estado {
     }
 
     private String estadoQFinal(NoEstado no) {
-        return (no.isEstadoFinal()) ? "" : this.estadoQErro();
+        return (no.isEstadoFinal()) ? "" : ", " + this.estadoQErro();
     }
 
     private void construirAutomato() {
@@ -55,9 +55,9 @@ public class Estado {
         NoEstado q0 = new NoEstado("q0", false, true);
         NoEstado q15 = new NoEstado("q15", true, false);
         NoEstado q7 = new NoEstado("q7", true, false);
-        NoEstado q16 = new NoEstado("q15", true, false);
+        NoEstado q16 = new NoEstado("q16", true, false);
         NoEstado q2 = new NoEstado("q2", false, false);
-        NoEstado q8 = new NoEstado("q2", false, false);
+        NoEstado q8 = new NoEstado("q8", false, false);
         NoEstado q27 = new NoEstado("q27", true, false);
         NoEstado q3 = new NoEstado("q3", true, false);
         NoEstado q4 = new NoEstado("q4", false, false);
@@ -116,19 +116,19 @@ public class Estado {
     public String validarPercuso(String palavra) {
         isErro = false;
         NoEstado no = estadoInicial();
-        return no.getDescricao()+ ", " + this.validarPercuso(no, 0, palavra);
+        return no.getDescricao() + this.validarPercuso(no, 0, palavra);
     }
 
     private String validarPercuso(NoEstado no, int posicao, String palavra) {
         if (palavra.length() == posicao) {
-            return no.getDescricao() + estadoQFinal(no);
+            return estadoQFinal(no);
         }
 
         no = no.getCaminhos().get(palavra.charAt(posicao));
 
         if (no != null) {
             posicao++;
-            return no.getDescricao()+ ", " + this.validarPercuso(no, posicao, palavra);
+            return ", " + no.getDescricao() + this.validarPercuso(no, posicao, palavra);
         }
 
         return this.estadoQErro();

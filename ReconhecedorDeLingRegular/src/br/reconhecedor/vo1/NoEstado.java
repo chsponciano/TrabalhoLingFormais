@@ -54,5 +54,11 @@ public class NoEstado {
         
         return (this.caminhos.put(chave, valor) != null);
     }
+
+    @Override
+    public String toString() {
+        return this.descricao;
+    }
+    
     
 }
