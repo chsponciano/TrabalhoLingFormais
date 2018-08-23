@@ -22,6 +22,7 @@ public class Lexico {
     public static Lexico object;
     private List<String> palavras_reservadas;
     private List<String> caracteres_especiais;
+    private final char[] caracteres_teclado_especiais = new char[]{'\'','!','@','#','$','%','¨','&','*','(',')','_','+','=','§','-','¹','²','³','£','¢','¬','[',']','{','}','º','°','?','/','|','\\','´','`','~','^'};
 
     private Lexico() {
         this.palavras_reservadas  = new ArrayList<String>();
@@ -44,6 +45,7 @@ public class Lexico {
         return object;
     }
 
+    //Pega o texto da textArea e verifica as palavras em seguida as valida e monta a saida na table
     public void reconhecimento(JTextArea entrada, JTable saida) {
         List lista = montaListaDePalvras(entrada.getText());
         Iterator iterator = lista.iterator();
@@ -77,7 +79,7 @@ public class Lexico {
         String aux = "";
 
         for (char c : conteudo.toCharArray()) {
-            if(Character.isLetterOrDigit(c)){
+            if(Character.isLetterOrDigit(c) || this.isCaracterEspecialTeclado(c)){
                 aux += c;
             }else{
                 if (aux.length() > 0) {
@@ -104,5 +106,14 @@ public class Lexico {
         }
 
         return palavras;
+    }
+    
+    private boolean isCaracterEspecialTeclado(char c){
+        for (char caracter : this.caracteres_teclado_especiais) {
+            if(c == caracter){
+                return true;
+            }
+        }
+        return false;
     }
 }

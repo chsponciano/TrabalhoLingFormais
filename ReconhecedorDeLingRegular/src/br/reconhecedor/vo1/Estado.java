@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.reconhecedor.vo1;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author Administrador
+ * @author Carlos Henrique Ponciano da Silva && Vinicius Luis da Silva
  */
 public class Estado {
 
@@ -31,6 +25,7 @@ public class Estado {
         return object;
     }
 
+    //Acha o no Inicial
     private NoEstado estadoInicial() {
         for (NoEstado no : noEstados) {
             if (no.isEstadoInicial()) {
@@ -50,6 +45,7 @@ public class Estado {
         return (no.isEstadoFinal()) ? "" : ", " + this.estadoQErro();
     }
 
+    //Monta grafo para conforme tabale
     private void construirAutomato() {
         //Inicializando estados     Desc   Final  Inicial
         NoEstado q0 = new NoEstado("q0", false, true);
