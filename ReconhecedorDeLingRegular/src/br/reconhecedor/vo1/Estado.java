@@ -131,6 +131,6 @@ public class Estado {
             return ", " + no.getDescricao() + this.validarPercuso(no, posicao, palavra);
         }
 
-        return this.estadoQErro();
+        return ", " + this.estadoQErro();
     }
 }
