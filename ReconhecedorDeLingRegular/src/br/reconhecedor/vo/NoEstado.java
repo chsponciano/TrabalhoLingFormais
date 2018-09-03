@@ -63,7 +63,5 @@ public class NoEstado {
     @Override
     public String toString() {
         return this.descricao;
-    }
-    
-    
+    }    
 }

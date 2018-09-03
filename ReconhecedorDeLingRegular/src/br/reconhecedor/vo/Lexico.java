@@ -14,30 +14,30 @@ import javax.swing.table.DefaultTableModel;
 
 public class Lexico {
 
-    public static Lexico object;
-    private List<String> palavras_reservadas;
-    private List<String> caracteres_especiais;
-    private final char[] caracteres_teclado_especiais = new char[]{'\'','!','@','#','$','%','¨','&','*','(',')','_','+','=','§','-','¹','²','³','£','¢','¬','[',']','{','}','º','°','?','/','|','\\','´','`','~','^'};
+    public static Lexico OBJETO;
+    private List<String> palavrasReservadas;
+    private List<String> caracteresEspeciais;
+    private final char[] caracteresTecladoEspeciais = new char[]{'\'','!','@','#','$','%','¨','&','*','(',')','_','+','=','§','-','¹','²','³','£','¢','¬','[',']','{','}','º','°','?','/','|','\\','´','`','~','^'};
 
     private Lexico() {
-        this.palavras_reservadas  = new ArrayList<String>();
-        this.caracteres_especiais = new ArrayList<String>();
+        this.palavrasReservadas  = new ArrayList<String>();
+        this.caracteresEspeciais = new ArrayList<String>();
 
-        this.palavras_reservadas.add("abaaa");
-        this.palavras_reservadas.add("acaaa");
-        this.palavras_reservadas.add("aaaba");
-        this.palavras_reservadas.add("aaaca");
+        this.palavrasReservadas.add("abaaa");
+        this.palavrasReservadas.add("acaaa");
+        this.palavrasReservadas.add("aaaba");
+        this.palavrasReservadas.add("aaaca");
 
-        this.caracteres_especiais.add(";");
-        this.caracteres_especiais.add(",");
-        this.caracteres_especiais.add(".");
+        this.caracteresEspeciais.add(";");
+        this.caracteresEspeciais.add(",");
+        this.caracteresEspeciais.add(".");
     }
 
     public static Lexico getInstance() {
-        if (object == null) {
-            object = new Lexico();
+        if (OBJETO == null) {
+            OBJETO = new Lexico();
         }
-        return object;
+        return OBJETO;
     }
 
     //Pega o texto da textArea e verifica as palavras em seguida as valida e monta a saida na table
@@ -54,10 +54,10 @@ public class Lexico {
     }
 
     private Object[] validaPalavra(int linha, String palavra) {
-        if (this.caracteres_especiais.contains(palavra)) {
+        if (this.caracteresEspeciais.contains(palavra)) {
             return new Object[]{linha, "Simbolo Especial", palavra, "q0, qEspecial"};
         }
-        if (this.palavras_reservadas.contains(palavra)) {
+        if (this.palavrasReservadas.contains(palavra)) {
             return new Object[]{linha, "Palavra Reservada", palavra, Estado.getInstance().validarPercuso(palavra)};
         }
         if ((palavra.charAt(0) != 'a') && (palavra.charAt(0) != 'b') && (palavra.charAt(0) != 'c')) {
@@ -82,7 +82,7 @@ public class Lexico {
                     palavras.add(aux);
                     aux = "";
                 }
-                if(this.caracteres_especiais.contains(String.valueOf(c))){
+                if(this.caracteresEspeciais.contains(String.valueOf(c))){
                     palavras.add(linha);
                     palavras.add(c);
                     continue;
@@ -104,7 +104,7 @@ public class Lexico {
     }
     
     private boolean isCaracterEspecialTeclado(char c){
-        for (char caracter : this.caracteres_teclado_especiais) {
+        for (char caracter : this.caracteresTecladoEspeciais) {
             if(c == caracter){
                 return true;
             }

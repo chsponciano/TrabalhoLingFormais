@@ -10,7 +10,7 @@ import java.util.List;
 public class Estado {
 
     private List<NoEstado> noEstados;
-    private static Estado object;
+    private static Estado OBEJETO;
     public static boolean isErro = false;
 
     private Estado() {
@@ -18,11 +18,11 @@ public class Estado {
     }
 
     public static Estado getInstance() {
-        if (object == null) {
-            object = new Estado();
+        if (OBEJETO == null) {
+            OBEJETO = new Estado();
         }
 
-        return object;
+        return OBEJETO;
     }
 
     //Acha o no Inicial
