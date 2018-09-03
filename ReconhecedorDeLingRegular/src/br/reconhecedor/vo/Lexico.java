@@ -9,8 +9,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Administrador
+ * @author Carlos Henrique Ponciano da Silva && Vinicius Luis da Silva
  */
+
 public class Lexico {
 
     public static Lexico object;

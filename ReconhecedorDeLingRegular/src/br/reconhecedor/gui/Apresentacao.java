@@ -4,6 +4,12 @@ import br.reconhecedor.vo.Lexico;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
+
+/**
+ *
+ * @author Carlos Henrique Ponciano da Silva && Vinicius Luis da Silva
+ */
+
 public class Apresentacao extends javax.swing.JFrame {
 
     public Apresentacao() {

@@ -2,6 +2,12 @@ package br.reconhecedor.gui;
 
 import javax.swing.JFrame;
 
+
+/**
+ *
+ * @author Carlos Henrique Ponciano da Silva && Vinicius Luis da Silva
+ */
+
 public class Equipe extends javax.swing.JFrame {
 
     public Equipe() {

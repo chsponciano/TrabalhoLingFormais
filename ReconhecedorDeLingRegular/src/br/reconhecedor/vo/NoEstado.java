@@ -3,6 +3,11 @@ package br.reconhecedor.vo;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *
+ * @author Carlos Henrique Ponciano da Silva && Vinicius Luis da Silva
+ */
+
 public class NoEstado {
     private String descricao;
     private boolean estadoFinal;
