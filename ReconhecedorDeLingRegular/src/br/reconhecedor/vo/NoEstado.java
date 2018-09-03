@@ -1,4 +1,4 @@
-package br.reconhecedor.vo1;
+package br.reconhecedor.vo;
 
 import java.util.HashMap;
 import java.util.Map;

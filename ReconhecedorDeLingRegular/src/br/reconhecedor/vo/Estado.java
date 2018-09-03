@@ -1,4 +1,4 @@
-package br.reconhecedor.vo1;
+package br.reconhecedor.vo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package br.reconhecedor.gui;
 
-import br.reconhecedor.vo1.Lexico;
+import br.reconhecedor.vo.Lexico;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
